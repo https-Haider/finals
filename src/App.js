@@ -1,25 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './store';
-import Dragons from './components/Dragon';
+import './App.css';
+import Dragon from './components/Dragon';
+import NavBar from './components/NavBar';
+import Mission from './components/Mission';
+import MyProfile from './components/MyProfile';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
   return (
-    <Provider store={store}>
+    <div>
       <Router>
-        <div>
-          <h1>Space Travel</h1>
-          <Switch>
-            <Route path="/dragons" component={Dragons} />
-            { }
-            <Route path="/" exact>
-              <p>Dragons</p>
-            </Route>
-          </Switch>
-        </div>
+      <NavBar/>
+      <Routes>
+        <Route exact path='/' element={<Dragon/>}/>
+        <Route exact path='/missions' element={<Mission/>}/>
+        <Route exact path='/myprofile' element={<MyProfile/>}/>
+      </Routes>
+     
       </Router>
-    </Provider>
+     
+    </div>
   );
 }
 
